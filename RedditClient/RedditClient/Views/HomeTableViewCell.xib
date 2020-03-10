@@ -57,11 +57,20 @@
                         <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgC-T6-DW3">
+                        <rect key="frame" x="5" y="107" width="83" height="29"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="Dismiss Post"/>
+                        <connections>
+                            <action selector="onDismissButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wHc-te-lT2"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="NR9-U6-IaT" firstAttribute="top" secondItem="cwU-aZ-WCd" secondAttribute="bottom" constant="6" id="DjV-JJ-LYY"/>
                     <constraint firstAttribute="trailing" secondItem="cwU-aZ-WCd" secondAttribute="trailing" constant="20" id="JVQ-Po-L1j"/>
                     <constraint firstItem="BAL-lq-pnG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Kzf-Ia-olu"/>
+                    <constraint firstItem="VgC-T6-DW3" firstAttribute="leading" secondItem="BAL-lq-pnG" secondAttribute="leading" id="Mor-1D-ZfC"/>
                     <constraint firstItem="cwU-aZ-WCd" firstAttribute="leading" secondItem="BAL-lq-pnG" secondAttribute="trailing" constant="20" id="Nkb-PA-f9H"/>
                     <constraint firstItem="NR9-U6-IaT" firstAttribute="trailing" secondItem="cwU-aZ-WCd" secondAttribute="trailing" id="P2c-Od-P5X"/>
                     <constraint firstItem="r4q-yi-fpI" firstAttribute="leading" secondItem="Ujp-O2-vYb" secondAttribute="trailing" constant="8" id="Ug4-4p-anN"/>
@@ -72,6 +81,7 @@
                     <constraint firstItem="r4q-yi-fpI" firstAttribute="centerY" secondItem="Ujp-O2-vYb" secondAttribute="centerY" id="ckc-7R-UYb"/>
                     <constraint firstItem="cwU-aZ-WCd" firstAttribute="top" secondItem="BAL-lq-pnG" secondAttribute="top" id="jlf-01-4Eh"/>
                     <constraint firstItem="cwU-aZ-WCd" firstAttribute="bottom" secondItem="BAL-lq-pnG" secondAttribute="bottom" id="lnB-b9-9c6"/>
+                    <constraint firstItem="VgC-T6-DW3" firstAttribute="centerY" secondItem="NR9-U6-IaT" secondAttribute="centerY" id="vyM-jz-MZ4"/>
                     <constraint firstItem="BAL-lq-pnG" firstAttribute="top" secondItem="r4q-yi-fpI" secondAttribute="bottom" constant="5" id="z9P-Vn-gHO"/>
                 </constraints>
             </tableViewCellContentView>

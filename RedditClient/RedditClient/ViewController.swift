@@ -38,11 +38,13 @@ class ViewController: UIViewController {
             
             print(self.redditData.count)
             
+            // Remove dismissed entries
+            var i = 0
             for entry in self.redditData {
-                print(entry.childData?.author ?? "")
-                print(entry.childData?.title ?? "")
-                print(entry.childData?.num_comments ?? 0)
-                print(" ")
+                if Utils.isDismissEntry(name: entry.childData?.name ?? "") {
+                    self.redditData.remove(at: i)
+                }
+                i += 1
             }
             
             self.stopRefreshAnimation()
@@ -50,6 +52,7 @@ class ViewController: UIViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+            print(self.redditData.count)
         }
     }
     
@@ -85,6 +88,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if let data = self.redditData[indexPath.row].childData {
+            if Utils.isDismissEntry(name: data.name ?? "") {
+                return 0
+            }
+        }
+        
         return 140
     }
     
@@ -95,6 +104,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             }
             cell.selectionStyle = .none
             cell.tag = indexPath.row
+            cell.delegate = self
             return cell
         } else {
             return UITableViewCell()
@@ -108,4 +118,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         performSegue(withIdentifier: "showDetailSegue", sender: indexPath)
     }
 
+}
+
+extension ViewController: HomeTableViewCellDelegate {
+    func onDismissPost(tag: Int) {
+        if let data = self.redditData[tag].childData {
+            Utils.setDismiss(name: data.name ?? "")
+            self.redditData.remove(at: tag)
+            self.tableView.deleteRows(at: [IndexPath(row: tag, section: 0)], with: .left)
+        }
+        
+    }
 }

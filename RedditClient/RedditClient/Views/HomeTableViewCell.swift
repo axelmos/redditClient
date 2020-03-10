@@ -9,6 +9,10 @@
 import UIKit
 import SDWebImage
 
+protocol HomeTableViewCellDelegate {
+    func onDismissPost(tag: Int)
+}
+
 class HomeTableViewCell: UITableViewCell {
 
     @IBOutlet var userLbl: UILabel!
@@ -17,10 +21,15 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet var thumb: UIImageView!
     @IBOutlet var unreadIndicator: UIView!
     @IBOutlet var commentsLbl: UILabel!
+    var delegate: HomeTableViewCellDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    @IBAction func onDismissButtonPressed(_ sender: UIButton) {
+        delegate.onDismissPost(tag: self.tag)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,7 +40,7 @@ class HomeTableViewCell: UITableViewCell {
     
     func loadCellDataWith(data: ChildData){
         userLbl.text = data.author ?? ""
-        dateLbl.text = String(data.date ?? 0)
+        dateLbl.text = Utils.formattedDate(unixDate: data.date ?? 0)
         titleTxt.text = data.title ?? ""
         commentsLbl.text = "\(data.num_comments ?? 0) comments"
         unreadIndicator.layer.cornerRadius = 5
