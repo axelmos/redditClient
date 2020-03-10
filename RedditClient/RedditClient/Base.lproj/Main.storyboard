@@ -49,16 +49,55 @@
                     <view key="view" contentMode="scaleToFill" id="0Qg-IH-lmo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0n-dE-m7V">
+                                <rect key="frame" x="20" y="30" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2wP-6F-m65">
+                                <rect key="frame" x="20" y="74" width="374" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="E8B-st-y2S"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="luD-60-Myc">
+                                <rect key="frame" x="20" y="354" width="374" height="414"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zhB-or-KFS" firstAttribute="trailing" secondItem="2wP-6F-m65" secondAttribute="trailing" constant="20" id="GBa-LZ-4YQ"/>
+                            <constraint firstItem="luD-60-Myc" firstAttribute="top" secondItem="2wP-6F-m65" secondAttribute="bottom" constant="30" id="LJu-Ry-QmV"/>
+                            <constraint firstItem="luD-60-Myc" firstAttribute="leading" secondItem="2wP-6F-m65" secondAttribute="leading" id="ZFw-FQ-57Y"/>
+                            <constraint firstItem="n0n-dE-m7V" firstAttribute="top" secondItem="zhB-or-KFS" secondAttribute="top" constant="30" id="bpB-0I-LE1"/>
+                            <constraint firstItem="zhB-or-KFS" firstAttribute="trailing" secondItem="n0n-dE-m7V" secondAttribute="trailing" constant="20" id="eP0-mj-FqQ"/>
+                            <constraint firstItem="zhB-or-KFS" firstAttribute="trailing" secondItem="luD-60-Myc" secondAttribute="trailing" constant="20" id="j2v-7S-yQd"/>
+                            <constraint firstItem="2wP-6F-m65" firstAttribute="top" secondItem="n0n-dE-m7V" secondAttribute="bottom" constant="20" id="plt-P4-33c"/>
+                            <constraint firstItem="zhB-or-KFS" firstAttribute="bottom" secondItem="luD-60-Myc" secondAttribute="bottom" constant="40" id="poE-mh-5mQ"/>
+                            <constraint firstItem="2wP-6F-m65" firstAttribute="leading" secondItem="zhB-or-KFS" secondAttribute="leading" constant="20" id="uae-ef-muy"/>
+                            <constraint firstItem="n0n-dE-m7V" firstAttribute="leading" secondItem="zhB-or-KFS" secondAttribute="leading" constant="20" id="zha-m2-Nzt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zhB-or-KFS"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="Jdr-d8-j8E">
                         <barButtonItem key="backBarButtonItem" title="Back" id="nE4-i1-XXr"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="thumb" destination="2wP-6F-m65" id="mPA-5P-6XO"/>
+                        <outlet property="titleTxt" destination="luD-60-Myc" id="0cK-1S-vYu"/>
+                        <outlet property="userLbl" destination="n0n-dE-m7V" id="voe-an-3JO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6l3-Qg-1Pc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="957" y="121"/>
+            <point key="canvasLocation" x="956.52173913043487" y="120.53571428571428"/>
         </scene>
     </scenes>
 </document>

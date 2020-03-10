@@ -10,12 +10,24 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    public var child:Child!
+    public var data:ChildData!
+    @IBOutlet var userLbl: UILabel!
+    @IBOutlet var titleTxt: UITextView!
+    @IBOutlet var thumb: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        userLbl.text = data.author ?? ""
+        titleTxt.text = data.title ?? ""
+        
+        DispatchQueue.main.async {
+            if let url = URL.init(string: self.data.thumbnail ?? "") {
+                self.thumb.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder_square"))
+            }
+        }
+        
+        Utils.setReadEntry(name: data.name ?? "")
     }
     
 

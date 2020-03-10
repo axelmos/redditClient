@@ -72,7 +72,9 @@ class ViewController: UIViewController {
         if segue.identifier == "showDetailSegue"{
             let detailVC = segue.destination as! DetailViewController
             let indexPath = sender as! IndexPath
-            detailVC.child = redditData[indexPath.row]
+            if let data = redditData[indexPath.row].childData {
+                detailVC.data = data
+            }
         }
     }
 }
@@ -100,6 +102,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? HomeTableViewCell {
+            cell.unreadIndicator.isHidden = true
+        }
         performSegue(withIdentifier: "showDetailSegue", sender: indexPath)
     }
 

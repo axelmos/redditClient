@@ -36,6 +36,12 @@ class HomeTableViewCell: UITableViewCell {
         commentsLbl.text = "\(data.num_comments ?? 0) comments"
         unreadIndicator.layer.cornerRadius = 5
         
+        if Utils.isReadEntry(name: data.name ?? "") {
+            unreadIndicator.isHidden = true
+        } else {
+            unreadIndicator.isHidden = false
+        }
+        
         DispatchQueue.main.async {
             
             if let url = URL.init(string: data.thumbnail ?? "") {

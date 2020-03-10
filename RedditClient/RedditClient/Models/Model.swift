@@ -40,6 +40,7 @@ struct ChildData: Decodable {
     let thumbnail: String?
     let num_comments: Int?
     let selftext: String?
+    let name: String?
     enum CodingKeys: String, CodingKey {
         case author = "author"
         case title = "title"
@@ -47,6 +48,7 @@ struct ChildData: Decodable {
         case thumbnail = "thumbnail"
         case num_comments = "num_comments"
         case selftext = "selftext"
+        case name = "name"
     }
      init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -57,5 +59,6 @@ struct ChildData: Decodable {
         thumbnail = try values.decodeIfPresent(String.self, forKey: .thumbnail)
         num_comments = try values.decodeIfPresent(Int.self, forKey: .num_comments)
         selftext = try values.decodeIfPresent(String.self, forKey: .selftext)
+        name = try values.decodeIfPresent(String.self, forKey: .name)
      }
 }
