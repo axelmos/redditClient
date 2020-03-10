@@ -20,7 +20,6 @@ class ViewController: UIViewController {
         self.tableView.register(UINib.init(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
         tableView.separatorInset = UIEdgeInsets.zero
         
-        let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(reloadData), for: UIControl.Event.valueChanged)
         self.tableView.refreshControl = refreshControl
         
@@ -46,11 +45,11 @@ class ViewController: UIViewController {
                 print(" ")
             }
             
-            
-           DispatchQueue.main.async {
             self.stopRefreshAnimation()
-            self.tableView.reloadData()
-           }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -59,7 +58,22 @@ class ViewController: UIViewController {
     }
     
     func stopRefreshAnimation(){
-        self.refreshControl.endRefreshing()
+        DispatchQueue.main.async {
+            if let refControl = self.tableView.refreshControl {
+                if refControl.isRefreshing {
+                    self.refreshControl.endRefreshing()
+                }
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showDetailSegue"{
+            let detailVC = segue.destination as! DetailViewController
+            let indexPath = sender as! IndexPath
+            detailVC.child = redditData[indexPath.row]
+        }
     }
 }
 
@@ -78,6 +92,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.loadCellDataWith(data: data)
             }
             cell.selectionStyle = .none
+            cell.tag = indexPath.row
             return cell
         } else {
             return UITableViewCell()
@@ -85,7 +100,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "showDetailSegue", sender: indexPath)
     }
 
 }

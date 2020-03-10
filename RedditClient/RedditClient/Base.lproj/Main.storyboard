@@ -35,22 +35,26 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="bIV-1a-eAr" id="l1M-fL-xx2"/>
+                        <segue destination="QOq-gQ-0cV" kind="show" identifier="showDetailSegue" id="phk-nX-Bof"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="121"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail-->
         <scene sceneID="Nvj-KC-dDa">
             <objects>
-                <viewController id="QOq-gQ-0cV" sceneMemberID="viewController">
+                <viewController id="QOq-gQ-0cV" customClass="DetailViewController" customModule="RedditClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Qg-IH-lmo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="zhB-or-KFS"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Detail" id="Jdr-d8-j8E">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="nE4-i1-XXr"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6l3-Qg-1Pc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HomeTableViewCell: UITableViewCell {
 
@@ -33,7 +34,13 @@ class HomeTableViewCell: UITableViewCell {
         dateLbl.text = String(data.date ?? 0)
         titleTxt.text = data.title ?? ""
         commentsLbl.text = "\(data.num_comments ?? 0) comments"
-        
         unreadIndicator.layer.cornerRadius = 5
+        
+        DispatchQueue.main.async {
+            
+            if let url = URL.init(string: data.thumbnail ?? "") {
+                self.thumb.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder_square"))
+            }
+        }
     }
 }

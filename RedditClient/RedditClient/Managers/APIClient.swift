@@ -16,8 +16,9 @@ class APIClient {
     public func getFrontPage(completion: @escaping (Model?) -> Void) {
         
         //"https://www.reddit.com/r/all/.json"
+        //"https://www.reddit.com/r/redditdev/top.json"
         
-        guard let url = URL(string: "https://www.reddit.com/r/redditdev/top.json") else { fatalError("Invalid URL") }
+        guard let url = URL(string: "https://www.reddit.com/r/all/.json") else { fatalError("Invalid URL") }
         
         URLSession.shared.dataTask(with: url) { data, response, err in
             if(err != nil) {
