@@ -60,7 +60,18 @@
                                 <rect key="frame" x="20" y="74" width="374" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="E8B-st-y2S"/>
+                                    <constraint firstAttribute="width" constant="370" id="MQX-FD-AQn"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="MQX-FD-AQn"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="MQX-FD-AQn"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="luD-60-Myc">
                                 <rect key="frame" x="20" y="354" width="374" height="414"/>
@@ -75,6 +86,8 @@
                         <constraints>
                             <constraint firstItem="zhB-or-KFS" firstAttribute="trailing" secondItem="2wP-6F-m65" secondAttribute="trailing" constant="20" id="GBa-LZ-4YQ"/>
                             <constraint firstItem="luD-60-Myc" firstAttribute="top" secondItem="2wP-6F-m65" secondAttribute="bottom" constant="30" id="LJu-Ry-QmV"/>
+                            <constraint firstItem="luD-60-Myc" firstAttribute="leading" secondItem="2wP-6F-m65" secondAttribute="trailing" constant="20" id="POX-JQ-I9Q"/>
+                            <constraint firstItem="luD-60-Myc" firstAttribute="top" secondItem="2wP-6F-m65" secondAttribute="top" id="V1l-go-XR8"/>
                             <constraint firstItem="luD-60-Myc" firstAttribute="leading" secondItem="2wP-6F-m65" secondAttribute="leading" id="ZFw-FQ-57Y"/>
                             <constraint firstItem="n0n-dE-m7V" firstAttribute="top" secondItem="zhB-or-KFS" secondAttribute="top" constant="30" id="bpB-0I-LE1"/>
                             <constraint firstItem="zhB-or-KFS" firstAttribute="trailing" secondItem="n0n-dE-m7V" secondAttribute="trailing" constant="20" id="eP0-mj-FqQ"/>
@@ -85,6 +98,21 @@
                             <constraint firstItem="n0n-dE-m7V" firstAttribute="leading" secondItem="zhB-or-KFS" secondAttribute="leading" constant="20" id="zha-m2-Nzt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zhB-or-KFS"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="POX-JQ-I9Q"/>
+                                <exclude reference="V1l-go-XR8"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="GBa-LZ-4YQ"/>
+                                <exclude reference="LJu-Ry-QmV"/>
+                                <include reference="POX-JQ-I9Q"/>
+                                <include reference="V1l-go-XR8"/>
+                                <exclude reference="ZFw-FQ-57Y"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="Jdr-d8-j8E">
                         <barButtonItem key="backBarButtonItem" title="Back" id="nE4-i1-XXr"/>

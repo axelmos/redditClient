@@ -38,21 +38,11 @@ class ViewController: UIViewController {
             
             print(self.redditData.count)
             
-            // Remove dismissed entries
-            var i = 0
-            for entry in self.redditData {
-                if Utils.isDismissEntry(name: entry.childData?.name ?? "") {
-                    self.redditData.remove(at: i)
-                }
-                i += 1
-            }
-            
             self.stopRefreshAnimation()
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-            print(self.redditData.count)
         }
     }
     
@@ -88,6 +78,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // Not the best workaround. This should normally will be done server side.
         if let data = self.redditData[indexPath.row].childData {
             if Utils.isDismissEntry(name: data.name ?? "") {
                 return 0
